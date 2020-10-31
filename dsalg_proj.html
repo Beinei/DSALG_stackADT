@@ -1,0 +1,256 @@
+<!DOCTYPE html><!--specifies the version of html, here html 5-->
+<html lang="en">
+    <head>
+        <title>Stack ADT</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=py&amp;skin=default"></script>
+        <title>Sister Shooketh!</title>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono&family=Permanent+Marker&display=swap" rel="stylesheet">
+        <style>
+            html{
+    font-family: 'Times New Roman', Times, serif;
+}
+            body{
+    background-image: url(https://cdn.shopify.com/s/files/1/1260/4791/products/RESIDENZA-CALACATTA_MA_6060_K4P3.jpg?v=1500676840);
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align:center;
+    height:100%;
+}
+p{
+    margin-left: 30%;
+    margin-right: 20%;
+    text-align:left;
+    font-family:"DM Mono",sans-serif ;
+    font-size: 120%;
+}
+.ppp{
+    font-family: "Bebas Neue",sans-serif;
+    font-size: 200%;
+}
+.splitscreen {
+    display:flex;
+}
+.splitscreen .left {
+    flex: 1; text-align: justify;
+}
+.splitscreen .right {
+    flex: 1;text-align: justify;
+}
+
+        </style>
+    </head>
+    <body>
+      <p>Submitted by : URK19CS1092 (ANNA THOMAS) </p>      
+    <h1 class="ppp">Data Structure</h1>
+    <p>A data structure is a data organization, management, 
+        and storage format that enables efficient access and modification. It is a collection of data values, the relationships among them, 
+        and the functions or operations that can be applied to the data.</p>
+    <h2 class="ppp">Stack Data Structure</h2>
+    <p>Stack is an Abstract Datatype (ADT) that follows the LIFO (Last In First Out) principle. In stack terminology, the operations are PUSH,to add an element, POP ,to delete the last element and DISPLAY, to display the elements in the stack.</p>
+    <img src="https://images.squarespace-cdn.com/content/v1/55098f35e4b08b43f952d88e/1529528839094-JSXO3YAFYI1S6RHGSFYT/ke17ZwdGBToddI8pDm48kPoswlzjSVMM-SxOp7CV59BZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZamWLI2zvYWH8K3-s_4yszcp2ryTI0HqTOaaUohrI8PI6FXy8c9PWtBlqAVlUS5izpdcIXDZqDYvprRqZ29Pw0o/Stacking-Blocks-r01.gif" width="25%" alt="stack gif">
+   
+    <p>Stack ADT can be implement in two ways, namely:</p>
+   
+    
+    <p>
+        <ul>
+        <li><p>Implementation of stack using arrays</p></li>
+        <li><p>Implementation of stack using linked lists</p></li>
+        </ul>
+     </p>
+
+    <h3 class="ppp">Algorithm</h3>
+   
+    <h4 class="ppp" style="margin-left:-29%;">Push operations</h4>
+    <img src="https://www.sitesbay.com/data-structure/images/push-operation.gif" width="20%" alt="stack gif">
+    <p>Step 1 − Checks if the stack is full.<br>Step 2 − If the stack is full, produces an error and exit.<br>Step 3 − If the stack is not full, increments top to point next empty space.<br>Step 4 − Adds data element to the stack location, where top is pointing.<br>Step 5 − Returns success.
+     </p>
+    <h4 class="ppp" style="margin-left:-30%;">Pop Operation</h4>
+    <img src="https://www.sitesbay.com/data-structure/images/pop-operation.gif" width="20%" alt="stack gif">
+    <p> Step 1 − Checks if the stack is empty.<br>
+
+Step 2 − If the stack is empty, produces an error and exit.<br>
+
+Step 3 − If the stack is not empty, accesses the data element at which top is pointing.<br>
+
+Step 4 − Decreases the value of top by 1.<br>
+
+Step 5 − Returns success.<br>
+    </p>
+    <h4 class="ppp" style="margin-left:-29%;">Display operation</h4>
+    <p>Step 1- Access the element using for loop.<br>Step 2- Display elements to console.</p>
+    <h3 class="ppp">Program in c++</h3>
+    <div class="splitscreen">
+        
+        <div class="left">
+            <figure><figcaption title="Stack Implementation using Arrays">
+                <p><b>Stack Implementation using Arrays</b></p>
+                <pre class="prettyprint" style="font-size: 100%;"><code>
+                    #include <iostream>
+                        using namespace std;
+                        #define size 4
+                        int stack[size],top=-1,ch,num;
+                        void push(int num)
+                            {
+                                if(top==(size-1))
+                                {
+                                    cout&lt;&lt;"Stack overflow"&lt;&lt;endl;
+                                }
+                                else
+                                {
+                                    top++;
+                                    stack[top]=num;
+                                    cout&lt;&lt;num&lt;&lt;" is successfully pushed"&lt;&lt;endl;
+                                }
+                            }
+                        void pop()
+                        {
+                            if(top==-1)
+                            {
+                                cout&lt;&lt;"Stack underflow"&lt;&lt;endl;
+                            }
+                            else
+                            {
+                                cout&lt;&lt;stack[top]&lt;&lt;"is successfully popped"&lt;&lt;endl;
+                                top--;
+                        
+                            }
+                        }
+                        void display()
+                        {
+                            if(top==-1)
+                            {
+                                cout&lt;&lt;"Stack underflow, nothing to display"&lt;&lt;endl;
+                            }
+                            for(int i=top;i>=0;i--)
+                            {
+                                cout&lt;&lt;stack[i]&lt;&lt;endl;
+                            }
+                        }
+                        
+                        
+                        int main()
+                        {
+                            while(1)
+                            {
+                            cout&lt;&lt;"1.Push\n2.Pop\n3.Display\n4.Exit\n Enter your choice"&lt;&lt;endl;
+                            cin>>ch;
+                        
+                        
+                            switch(ch)
+                            {
+                                case 1:
+                                    cout&lt;&lt;"Enter a number"&lt;&lt;endl;
+                                    cin>>num;
+                                    push(num);
+                                    break;
+                               case 2:
+                                    pop();
+                                    break;
+                               case 3:
+                                    display();
+                                    break;
+                               case 4:
+                                    exit(0);
+                        }}}
+                        
+                </code></pre>
+            </figcaption></figure>
+            
+        </div>
+    
+        <div class="right">
+            <figure><figcaption title="Stack Implementation using Linked Lists">
+                <p><b>Stack Implementation using Linked Lists</b></p>
+                <pre class="prettyprint" style="font-size: 100%;"><code>
+                    #include <iostream>
+                        using namespace std;
+                        struct node
+                        {
+                            int data;
+                            node* next;
+                        };
+                        node* head;
+                        int push();
+                        int pop();
+                        void display();
+                        
+                        int main()
+                    {
+                        int ch;
+                        do{
+                        cout&lt;&lt;"Choices are:"&lt;&lt;endl;
+                        cout&lt;&lt;"1.Push\t2.Pop\t3.Display\t4.Exit\nEnter a choice:"&lt;&lt;endl;
+                        cin>>ch;
+                        switch(ch)
+                        {
+                        case 1:push();break;
+                        case 2:pop();break;
+                        case 3:display();break;
+                        case 4:exit(0);
+                        default:cout&lt;&lt;"Input choice is invalid"&lt;&lt;endl;
+                        }
+                        }while(true);
+                    }
+                    
+                    int push()
+                    {
+                        node* p;int n;
+                        p=(struct node*)malloc(sizeof(struct node*));
+                        cout&lt;&lt;"Enter the value"&lt;&lt;endl;
+                        cin>>n;
+                        p->data=n;
+                        if(head==NULL)
+                            {p->next=NULL;
+                            head=p;}
+                    
+                        else
+                        {
+                            p->next=head;;
+                            head=p;
+                    
+                        }cout&lt;&lt;"The value "&lt;&lt;n&lt;&lt;" is successfully pushed to stack."&lt;&lt;endl;
+                    }
+                    int pop()
+                    {
+                        node*p;int item;
+                        if(head==NULL)
+                            cout&lt;&lt;"UNDERFLOW"&lt;&lt;endl;
+                        else
+                        {
+                            item=head->data;
+                            p=head;
+                            head=head->next;
+                            free(p);
+                           cout&lt;&lt;"The value "&lt;&lt;item&lt;&lt;" is successfully popped from stack."&lt;&lt;endl;
+                        }
+                    }
+                    void display()
+                    {
+                        node* temp;
+                        if(head==NULL)
+                            cout&lt;&lt;"UNDERFLOW"&lt;&lt;endl;
+                        else
+                        {
+                            temp=head;
+                            cout&lt;&lt;"-----DISPLAY-----"&lt;&lt;endl;
+                            while(temp!=NULL)
+                            {
+                                cout&lt;&lt;temp->data&lt;&lt;endl;
+                                temp=temp->next;
+                            }cout&lt;&lt;"-----------------"&lt;&lt;endl;
+                        }
+                    }
+                        
+                </code></pre>
+            </figcaption></figure>
+            
+        </div>
+    </div>
+    
+
+
+
+        </body>
+</html>
